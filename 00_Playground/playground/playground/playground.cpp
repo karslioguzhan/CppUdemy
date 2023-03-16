@@ -1,20 +1,46 @@
-// playground.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <iomanip>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int function_activation_count{ 0 };
+
+//----DO NOT MODIFY THE CODE ABOVE THIS LINE----
+//----WRITE THE FUNCTION PROTOTYPE BELOW THIS LINE----
+
+double a_penny_doubled_everyday(int, double);//----WRITE THE FUNCTION PARAMETER LIST WITHIN THE PARENTHESES
+
+//----WRITE THE FUNCTION PROTOTYPE ABOVE THIS LINE----
+//----DO NOT MODIFY THE CODE BELOW THIS LINE----
+
+void amount_accumulated() {
+
+    //----DO NOT MODIFY THE CODE ABOVE THIS LINE----
+    //----WRITE THE FUNCTION CALL BELOW THIS LINE----
+
+
+
+    //----WRITE THE FUNCTION CALL ABOVE THIS LINE----
+    //----DO NOT MODIFY THE CODE BELOW THIS LINE----
+    cout << "If I start with a penny and doubled it every day for 25 days, I will have $" << setprecision(10) << total_amount;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+//----DO NOT MODIFY THE CODE ABOVE THIS LINE----
+//----WRITE THE FUNCTION DEFINITION BELOW THIS LINE----
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+double a_penny_doubled_everyday(int numDays, double amount = 0.1) {//----WRITE THE FUNCTION PARAMETER LIST WITHIN THE PARENTHESES
+    function_activation_count++;
+    //----DO NOT MODIFY THE CODE ABOVE THIS LINE----
+    //----WRITE THE FUNCTION BODY BELOW THIS LINE----
+    if (numDays == 0)
+    {
+        return amount;
+    }
+          
+    return a_penny_doubled_everyday(numDays - 1, amount*2);
+    //----WRITE THE FUNCTION BODY ABOVE THIS LINE----
+    //DO NOT MODIFY THE CODE BELOW THIS LINE----
+}
+
+int test_function_activation_count() {
+    return function_activation_count;
+}
