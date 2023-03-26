@@ -28,6 +28,14 @@ public:
     Mystring operator-() const;
     // Equality operator
     bool operator==(const Mystring rhs) const;
+    // Unequal operator
+    bool operator!=(const Mystring rhs) const;
+    // Less than operator
+    bool operator<(const Mystring rhs) const;
+    // Greater than operator
+    bool operator>(const Mystring rhs) const;
+    // Concatenation
+    Mystring& operator+(const Mystring& rhs);
 };
 
 #endif // _MYSTRING_H_

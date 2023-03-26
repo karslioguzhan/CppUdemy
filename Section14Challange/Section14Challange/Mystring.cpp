@@ -28,7 +28,7 @@ Mystring::Mystring(const Mystring& source)
     : str{ nullptr } {
     str = new char[strlen(source.str) + 1];
     std::strcpy(str, source.str);
-    //       std::cout << "Copy constructor used" << std::endl;
+    //       std::std::cout << "Copy constructor used" << std::std::endl;
 
 }
 
@@ -36,7 +36,7 @@ Mystring::Mystring(const Mystring& source)
 Mystring::Mystring(Mystring&& source)
     :str(source.str) {
     source.str = nullptr;
-    //        std::cout << "Move constructor used" << std::endl;
+    //        std::std::cout << "Move constructor used" << std::std::endl;
 }
 
 // Destructor
@@ -46,7 +46,7 @@ Mystring::~Mystring() {
 
 // Copy assignment
 Mystring& Mystring::operator=(const Mystring& rhs) {
-    //    std::cout << "Using copy assignment" << std::endl;
+    //    std::std::cout << "Using copy assignment" << std::std::endl;
 
     if (this == &rhs)
         return *this;
@@ -58,7 +58,7 @@ Mystring& Mystring::operator=(const Mystring& rhs) {
 
 // Move assignment
 Mystring& Mystring::operator=(Mystring&& rhs) {
-    //   std::cout << "Using move assignment" << std::endl;
+    //   std::std::cout << "Using move assignment" << std::std::endl;
     if (this == &rhs)
         return *this;
     delete[] str;
@@ -111,4 +111,26 @@ Mystring Mystring::operator-() const
 bool Mystring::operator==(const Mystring rhs) const
 {
     return (std::strcmp(this->str, rhs.str) == 0);
+}
+
+bool Mystring::operator!=(const Mystring rhs) const
+{
+    return (std::strcmp(this->str, rhs.str) != 0);
+}
+
+bool Mystring::operator<(const Mystring rhs) const
+{
+    return (std::strlen(this->str) < std::strlen(rhs.str));
+}
+
+bool Mystring::operator>(const Mystring rhs) const
+{
+    return (std::strlen(this->str) > std::strlen(rhs.str));
+}
+
+Mystring& Mystring::operator+(const Mystring& rhs)
+{
+    char* tempString = new char[std::strlen(this->str) + std::strlen(rhs.str)];
+    Mystring test;
+    return test;
 }

@@ -5,63 +5,60 @@
 
 
 int main() {
-
-
     
-
     std::cout << std::boolalpha << std::endl;
     Mystring a {"frank"};
     Mystring b {"frank"};
 
     std::cout << (a==b) << std::endl;         // true
-    /*
-    cout << (a!=b) << endl;          // false
+    std::cout << (a!=b) << std::endl;          // false
 
     b = "george";
-    cout << (a==b) << endl;         // false
-    cout << (a!=b) << endl;          // true
-     cout << (a<b) << endl;          // true
-    cout << (a>b) << endl;           // false
+    std::cout << (a==b) << std::endl;         // false
+    std::cout << (a!=b) << std::endl;          // true
+     std::cout << (a<b) << std::endl;          // true
+     
+    std::cout << (a>b) << std::endl;           // false
 
     Mystring s1 {"FRANK"};
     s1 = -s1;
-    cout << s1 << endl;               // frank
-
+    std::cout << s1 << std::endl;               // frank
+    
     s1 = s1 + "*****";
-    cout << s1 << endl;               // frank*****
-
+    std::cout << s1 << std::endl;               // frank*****
+    /*
     s1 += "-----";                        // frank*****-----
-    cout << s1 << endl;
+    std::cout << s1 << std::endl;
 
     Mystring s2{"12345"};
     s1 = s2 * 3;
-    cout << s1 << endl;              // 123451234512345
+    std::cout << s1 << std::endl;              // 123451234512345
 
     Mystring s3{"abcdef"};
     s3 *= 5;
-    cout << s3 << endl;             // abcdefabcdefabcdefabcdefabcdef
+    std::cout << s3 << std::endl;             // abcdefabcdefabcdefabcdefabcdef
 
     Mystring s = "Frank";
     ++s;
-    cout << s << endl;                  // FRANK
+    std::cout << s << std::endl;                  // FRANK
 
     s = -s;
-    cout << s << endl;                  // frank
+    std::cout << s << std::endl;                  // frank
 
     Mystring result;
     result = ++s;
-    cout << s << endl;                  // FRANK
-    cout << result << endl;           // FRANK
+    std::cout << s << std::endl;                  // FRANK
+    std::cout << result << std::endl;           // FRANK
 
     s = "Frank";
     s++;
-    cout << s << endl;                  // FRANK
+    std::cout << s << std::endl;                  // FRANK
 
     s = -s;
-    cout << s << endl;                  // frank
+    std::cout << s << std::endl;                  // frank
     result = s++;
-    cout << s << endl;                  // FRANK
-    cout << result << endl;           // frank
+    std::cout << s << std::endl;                  // FRANK
+    std::cout << result << std::endl;           // frank
 
     */
     return 0;
