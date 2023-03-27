@@ -67,7 +67,6 @@ Mystring& Mystring::operator=(Mystring&& rhs) {
     return *this;
 }
 
-
 // Display method
 void Mystring::display() const {
     std::cout << str << " : " << get_length() << std::endl;
@@ -76,8 +75,6 @@ void Mystring::display() const {
 // getters
 int Mystring::get_length() const { return strlen(str); }
 const char* Mystring::get_str() const { return str; }
-
-
 
 // overloaded insertion operator
 std::ostream& operator<<(std::ostream& os, const Mystring& rhs) {
@@ -107,85 +104,71 @@ Mystring operator-(const Mystring& obj)
     return tempObj;
 }
 
-/*Overloaded operators
-Mystring Mystring::operator-() const
+bool operator==(const Mystring lhs, const Mystring rhs)
 {
-    char* tempString = new char[std::strlen(str) + 1];
-    std::strcpy(tempString, str);
-    for (size_t numChar{ 0 }; numChar < std::strlen(str); ++numChar)
-    {
-        tempString[numChar] = std::tolower(str[numChar]);
-    }
-    Mystring tempObj{ tempString };
-    delete[] tempString;
-    return tempObj;
-}
-*/
-
-bool Mystring::operator==(const Mystring rhs) const
-{
-    return (std::strcmp(this->str, rhs.str) == 0);
+    return (std::strcmp(lhs.str, rhs.str) == 0);
 }
 
-bool Mystring::operator!=(const Mystring rhs) const
+bool operator!=(const Mystring lhs, const Mystring rhs)
 {
-    return (std::strcmp(this->str, rhs.str) != 0);
+    return (std::strcmp(lhs.str, rhs.str) != 0);
 }
 
-bool Mystring::operator<(const Mystring rhs) const
+bool operator<(const Mystring lhs, const Mystring rhs) 
 {
-    return (std::strlen(this->str) < std::strlen(rhs.str));
+    return (std::strlen(lhs.str) < std::strlen(rhs.str));
 }
 
-bool Mystring::operator>(const Mystring rhs) const
+bool operator>(const Mystring lhs, const Mystring rhs)
 {
-    return (std::strlen(this->str) > std::strlen(rhs.str));
+    return (std::strlen(lhs.str) > std::strlen(rhs.str));
 }
 
-Mystring Mystring::operator+(const Mystring& rhs) const
+Mystring operator+(const Mystring& lhs, const Mystring& rhs)
 {
-    char* tempString = new char[std::strlen(this->str) + std::strlen(rhs.str) + 1];
-    std::strcpy(tempString, this->str);
+    char* tempString = new char[std::strlen(lhs.str) + std::strlen(rhs.str) + 1];
+    std::strcpy(tempString, lhs.str);
     std::strcat(tempString, rhs.str);
     Mystring tempObj(tempString);
     delete[] tempString;
     return tempObj;
 }
 
-Mystring& Mystring::operator+=(const Mystring& rhs)
+Mystring operator+=(Mystring& lhs, const Mystring& rhs)
 {
-    *this = *this + rhs;
-    return *this;
+    lhs = lhs + rhs;
+    return lhs;
 }
 
-Mystring Mystring::operator*(const int rhs) const
+Mystring operator*(const Mystring& lhs, const int& rhs)
 {
-    char* tempString = new char[std::strlen(this->str) * rhs + 1];
-    std::strcpy(tempString, this->str);
+    char* tempString = new char[std::strlen(lhs.str) * rhs + 1];
+    std::strcpy(tempString, lhs.str);
     for (size_t numIteration{ 0 }; numIteration < rhs - 1; ++numIteration)
     {
-        std::strcat(tempString, this->str);
+        std::strcat(tempString, lhs.str);
     }
     Mystring tempObj(tempString);
     delete[]tempString;
     return tempObj;
 }
-Mystring& Mystring::operator*=(const int rhs)
+
+Mystring operator*=(Mystring& lhs, const int& rhs)
 {
-    *this = *this * rhs;
-    return *this;
+    lhs = lhs * rhs;
+    return lhs;
 }
 
-Mystring& Mystring::operator++()
+Mystring operator++(Mystring lhs)
 {
-    for (size_t i = 0; i < std::strlen(str); i++)
-        str[i] = std::toupper(str[i]);
-    return *this;
+    for (size_t i = 0; i < std::strlen(lhs.str); i++)
+        lhs.str[i] = std::toupper(lhs.str[i]);
+    return lhs;
 }
 
-Mystring Mystring::operator++(int)
+Mystring operator++(Mystring& lhs, int)
 {
-    Mystring temp(*this);
-    operator++();
+    Mystring temp(lhs);
+    operator++(lhs);
     return temp;
 }

@@ -6,6 +6,16 @@ class Mystring
     friend std::ostream& operator<<(std::ostream& os, const Mystring& rhs);
     friend std::istream& operator>>(std::istream& in, Mystring& rhs);
     friend Mystring operator-(const Mystring& obj);
+    friend bool operator==(const Mystring lhs, const Mystring rhs);
+    friend bool operator!=(const Mystring lhs, const Mystring rhs);
+    friend bool operator<(const Mystring lhs, const Mystring rhs);
+    friend bool operator>(const Mystring lhs, const Mystring rhs);
+    friend Mystring operator+(const Mystring& lhs, const Mystring& rhs);
+    friend Mystring operator+=(Mystring& lhs, const Mystring& rhs);
+    friend Mystring operator*(const Mystring& lhs, const int& rhs);
+    friend Mystring operator*=(Mystring& lhs, const int& rhs);
+    friend Mystring operator++(Mystring lhs);
+    friend Mystring operator++(Mystring& lhs, int);
 
 private:
     char* str;      // pointer to a char[] that holds a C-style string
@@ -23,29 +33,6 @@ public:
 
     int get_length() const;                                      // getters
     const char* get_str() const;
-
-    /*Overloading operator function definitions*/
-
-    // Equality operator
-    bool operator==(const Mystring rhs) const;
-    // Unequal operator
-    bool operator!=(const Mystring rhs) const;
-    // Less than operator
-    bool operator<(const Mystring rhs) const;
-    // Greater than operator
-    bool operator>(const Mystring rhs) const;
-    // Concatenation
-    Mystring operator+(const Mystring& rhs) const;
-    // Addition assignment operator
-    Mystring& operator+=(const Mystring& rhs);
-    // Multiplication operator (repeating)
-    Mystring operator*(const int rhs) const;
-    // Multiplication assignment operator
-    Mystring& operator*=(const int rhs);
-    // Pre Increment operator
-    Mystring& operator++();
-    // Post Increment operator
-    Mystring operator++(int);
 
 };
 
