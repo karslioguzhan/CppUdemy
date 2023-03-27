@@ -26,30 +26,30 @@ int main() {
     
     s1 = s1 + "*****";
     std::cout << s1 << std::endl;               // frank*****
-    /*
+    
     s1 += "-----";                        // frank*****-----
     std::cout << s1 << std::endl;
 
     Mystring s2{"12345"};
     s1 = s2 * 3;
     std::cout << s1 << std::endl;              // 123451234512345
-
+    
     Mystring s3{"abcdef"};
     s3 *= 5;
     std::cout << s3 << std::endl;             // abcdefabcdefabcdefabcdefabcdef
-
+    
     Mystring s = "Frank";
     ++s;
     std::cout << s << std::endl;                  // FRANK
 
     s = -s;
     std::cout << s << std::endl;                  // frank
-
+    
     Mystring result;
     result = ++s;
     std::cout << s << std::endl;                  // FRANK
     std::cout << result << std::endl;           // FRANK
-
+    
     s = "Frank";
     s++;
     std::cout << s << std::endl;                  // FRANK
@@ -60,7 +60,7 @@ int main() {
     std::cout << s << std::endl;                  // FRANK
     std::cout << result << std::endl;           // frank
 
-    */
+    
     return 0;
 }
 

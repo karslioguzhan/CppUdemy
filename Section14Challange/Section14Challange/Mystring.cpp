@@ -128,9 +128,50 @@ bool Mystring::operator>(const Mystring rhs) const
     return (std::strlen(this->str) > std::strlen(rhs.str));
 }
 
-Mystring& Mystring::operator+(const Mystring& rhs)
+Mystring Mystring::operator+(const Mystring& rhs) const
 {
-    char* tempString = new char[std::strlen(this->str) + std::strlen(rhs.str)];
-    Mystring test;
-    return test;
+    char* tempString = new char[std::strlen(this->str) + std::strlen(rhs.str) +1];
+    std::strcpy(tempString, this->str);
+    std::strcat(tempString, rhs.str);
+    Mystring tempObj(tempString);
+    delete[] tempString;
+    return tempObj;
+}
+
+Mystring& Mystring::operator+=(const Mystring& rhs)
+{
+    *this = *this + rhs;
+    return *this;
+}
+
+Mystring Mystring::operator*(const int rhs) const
+{
+    char* tempString = new char[std::strlen(this->str) * rhs + 1];
+    std::strcpy(tempString, this->str);
+    for (size_t numIteration{ 0 }; numIteration < rhs-1; ++numIteration)
+    {
+        std::strcat(tempString, this->str);
+    }
+    Mystring tempObj(tempString);
+    delete[]tempString;
+    return tempObj;
+}
+Mystring& Mystring::operator*=(const int rhs)
+{
+    *this = *this * rhs;
+    return *this;
+}
+
+Mystring& Mystring::operator++()
+{
+    for (size_t i = 0; i < std::strlen(str); i++)
+        str[i] = std::toupper(str[i]);
+    return *this;
+}
+
+Mystring Mystring::operator++(int) 
+{
+    Mystring temp(*this);
+    operator++();                    
+    return temp;                     
 }

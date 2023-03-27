@@ -35,7 +35,18 @@ public:
     // Greater than operator
     bool operator>(const Mystring rhs) const;
     // Concatenation
-    Mystring& operator+(const Mystring& rhs);
+    Mystring operator+(const Mystring& rhs) const;
+    // Addition assignment operator
+    Mystring& operator+=(const Mystring& rhs);
+    // Multiplication operator (repeating)
+    Mystring operator*(const int rhs) const;
+    // Multiplication assignment operator
+    Mystring& operator*=(const int rhs);
+    // Pre Increment operator
+    Mystring& operator++();
+    // Post Increment operator
+    Mystring operator++(int);
+
 };
 
 #endif // _MYSTRING_H_
