@@ -61,3 +61,23 @@ void withdraw(std::vector<Savings_Account> &accounts, double amount) {
             std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
     } 
 }
+
+// Helper functions for Checking Account class
+
+// Displays Checking Account objects in a  vector of Checking Account objects 
+void display(const std::vector<Checking_Account>& accounts) {
+    std::cout << "\n=== Checking Accounts ====================================" << std::endl;
+    for (const auto& acc : accounts)
+        std::cout << acc << std::endl;
+}
+
+// Withdraw supplied amount from each Checking Account object in the vector
+void withdraw(std::vector<Checking_Account>& accounts, double amount) {
+    std::cout << "\n=== Withdrawing from Savings Accounts ======================" << std::endl;
+    for (auto& acc : accounts) {
+        if (acc.withdraw(amount))
+            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+        else
+            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+    }
+}
