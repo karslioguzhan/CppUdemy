@@ -30,6 +30,9 @@
     <ClCompile Include="Checking_Account.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Trust_Account.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h">
@@ -44,5 +47,11 @@
     <ClInclude Include="Checking_Account.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Trust_Account.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
