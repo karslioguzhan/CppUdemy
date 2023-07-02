@@ -13,6 +13,6 @@ protected:
 public:
     Savings_Account(std::string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
     bool deposit(double amount);
-    // Inherits the Account::withdraw method
+    bool withdraw(double amount);
 };
 

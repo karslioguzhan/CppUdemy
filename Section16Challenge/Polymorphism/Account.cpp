@@ -15,7 +15,7 @@ bool Account::deposit(double amount)
 	}
 }
 
-bool Account::withdraw(double amount) 
+bool Account::withdraw(double amount)
 {
 	if (balance - amount >= 0) {
 		balance -= amount;
@@ -23,6 +23,10 @@ bool Account::withdraw(double amount)
 	}
 	else
 		return false;
+}
+
+Account::~Account()
+{
 }
 
 std::ostream& operator<<(std::ostream& os, const Account& account) 

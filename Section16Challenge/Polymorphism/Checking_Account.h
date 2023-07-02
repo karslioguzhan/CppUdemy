@@ -12,6 +12,6 @@ private:
 	static constexpr double per_check_fee = 1.5;
 public:
 	Checking_Account(std::string name = def_name, double balance = def_balance);
-	bool withdraw(double);
-	// Inherits the Account::deposit method
+	bool withdraw(double amount);
+	bool deposit(double amount);
 };
