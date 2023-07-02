@@ -25,12 +25,13 @@ bool Account::withdraw(double amount)
 		return false;
 }
 
+void Account::print(std::ostream& os) const
+{
+	os << "Account display";
+}
+
 Account::~Account()
 {
 }
 
-std::ostream& operator<<(std::ostream& os, const Account& account) 
-{
-	os << "[Account: " << account.name << ": " << account.balance << "]";
-	return os;
-}
+

@@ -14,6 +14,21 @@ int main() {
     cout.precision(2);
     cout << fixed;
 
+    vector<Savings_Account> *sav_accounts = new vector<Savings_Account>();
+    sav_accounts->push_back(Savings_Account{});
+    sav_accounts->push_back(Savings_Account{ "Superman" });
+    sav_accounts->push_back(Savings_Account{ "Batman", 2000 });
+    sav_accounts->push_back(Savings_Account{ "Wonderwoman", 5000, 5.0 });
+    display(sav_accounts);
+
+    // All withdrawals should fail if there are too many withdrawals or if the withdrawl is > 20% of the balance
+    //for (int numIterator {0}; numIterator < sav_accounts->size(); ++numIterator)
+    //{
+
+    //    std::cout << sav_accounts->at(numIterator) << std::endl;
+    //}
+
+    delete sav_accounts;
     // Accounts
     //vector<Account> accounts;
     //accounts.push_back(Account{});
@@ -26,7 +41,7 @@ int main() {
     //withdraw(accounts, 2000);
 
     // Savings 
-
+        /*
     vector<Savings_Account> sav_accounts;
     sav_accounts.push_back(Savings_Account{});
     sav_accounts.push_back(Savings_Account{ "Superman" });
@@ -49,7 +64,7 @@ int main() {
     display(check_accounts);
     deposit(check_accounts, 1000);
     withdraw(check_accounts, 2000);
-    /*
+
     // Trust
 
     vector<Trust_Account> trust_accounts;
