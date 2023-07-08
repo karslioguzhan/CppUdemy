@@ -13,11 +13,13 @@ bool Checking_Account::withdraw(double amount)
 
 bool Checking_Account::deposit(double amount)
 {
-	return Account::Account::deposit(amount);
+	return Account::deposit(amount);
 }
 
 void Checking_Account::print(std::ostream& os) const
 {
-	os << "Checking display";
+	os.precision(2);
+	os << std::fixed;
+	os << "[Checking_Account: " << name << ": " << balance << "]";
 }
 

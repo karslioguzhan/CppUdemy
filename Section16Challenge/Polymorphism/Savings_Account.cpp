@@ -17,11 +17,13 @@ bool Savings_Account::deposit(double amount)
 
 bool Savings_Account::withdraw(double amount)
 {
-    return Account::Account::withdraw(amount);
+    return Account::withdraw(amount);
 }
 
 void Savings_Account::print(std::ostream& os) const
 {
-    os << "Name of Saving Account \"" << name << "\" ";
+    os.precision(2);
+    os << std::fixed;
+    os << "[Savings_Account: " << name << ": " << balance << "]";
 }
 
