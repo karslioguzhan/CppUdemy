@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IOStreamChallenge1", "IOStreamChallenge1.vcxproj", "{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Debug|x64.ActiveCfg = Debug|x64
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Debug|x64.Build.0 = Debug|x64
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Debug|x86.ActiveCfg = Debug|Win32
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Debug|x86.Build.0 = Debug|Win32
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Release|x64.ActiveCfg = Release|x64
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Release|x64.Build.0 = Release|x64
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Release|x86.ActiveCfg = Release|Win32
+		{817ABDCF-7EBF-4BD2-9A29-59898F6187AA}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08F4E6B0-B718-4371-A65C-97ED125C4554}
+	EndGlobalSection
+EndGlobal
