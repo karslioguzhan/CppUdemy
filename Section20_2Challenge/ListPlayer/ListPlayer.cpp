@@ -4,10 +4,7 @@
 #include <cctype>
 #include <iomanip>
 #include <limits>
-
-// forward declaration
-char getSelection();
-std::list<Song>::iterator handleSelection(char selection, std::list<Song> playlist,std::list<Song>::iterator currentSong);
+#include <iterator>
 
 
 class Song {
@@ -66,6 +63,8 @@ void display_playlist(const std::list<Song>& playlist, const Song& current_song)
     // This function should display the current playlist 
     // and then the current song playing.
 
+    std::cout << std::endl;
+
     for (auto actualSong : playlist)
     {
         std::cout << actualSong << std::endl;
@@ -75,6 +74,11 @@ void display_playlist(const std::list<Song>& playlist, const Song& current_song)
     
 }
 
+
+// forward declaration
+char getSelection();
+std::list<Song>::iterator handleSelection(char selection, std::list<Song> playlist,std::list<Song>::iterator currentSong);
+std::list<Song>::iterator playNextSong(std::list<Song> playlist, std::list<Song>::iterator currentSong);
 
 
 int main() {
@@ -99,9 +103,6 @@ int main() {
         current_song = handleSelection(actualSelection, playlist, current_song);
     } while (actualSelection != 'Q');
   
-  
-
-    
     return 0;
 }
 
@@ -130,6 +131,7 @@ std::list<Song>::iterator handleSelection(char selection, std::list<Song> playli
         case 'F':
             break;
         case 'N':
+            currentSong = playNextSong(playlist, currentSong);
             break;
         case 'P':
             break;
@@ -137,12 +139,29 @@ std::list<Song>::iterator handleSelection(char selection, std::list<Song> playli
             break;
         case 'L':
             display_playlist(playlist, *currentSong);
-            return currentSong;
             break;
         case 'Q':
             std::cout << "Thanks for listening!" << std::endl;
-            return currentSong;
             break;
     }
+    return currentSong;
+}
 
+// Playing next song
+std::list<Song>::iterator playNextSong(std::list<Song> playlist, std::list<Song>::iterator currentSongIterator)
+{
+    std::cout << "Playing next song\nPlaying:\n";
+    std::list<Song>::iterator lastSongIterator{ std::next(playlist.begin(), playlist.size()-1)};
+    
+    if (((*lastSongIterator).get_name()) == (*currentSongIterator).get_name())
+    {
+        currentSongIterator = playlist.begin();
+    }
+    else
+    {
+        currentSongIterator = std::next(currentSongIterator, 1);
+    }
+
+    std::cout << *currentSongIterator << std::endl;
+    return currentSongIterator;
 }
