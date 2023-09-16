@@ -80,6 +80,7 @@ char getSelection();
 void handleSelection(char selection, std::list<Song>& playlist,std::list<Song>::iterator &currentSong);
 void playNextSong(std::list<Song> &playlist, std::list<Song>::iterator &currentSong);
 void playPreviousSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
+void playFirstSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
 
 
 int main() {
@@ -130,6 +131,7 @@ void handleSelection(char selection, std::list<Song>& playlist, std::list<Song>:
     switch (selection)
     {
         case 'F':
+            playFirstSong(playlist, currentSong);
             break;
         case 'N':
             playNextSong(playlist, currentSong);
@@ -178,5 +180,13 @@ void playPreviousSong(std::list<Song>& playlist, std::list<Song>::iterator& curr
         --currentSong;
     }
 
+    std::cout << *currentSong << std::endl;
+}
+
+// Playing first song
+void playFirstSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong)
+{
+    std::cout << "Playing first song\nPlaying:\n";
+    currentSong = playlist.begin();
     std::cout << *currentSong << std::endl;
 }
