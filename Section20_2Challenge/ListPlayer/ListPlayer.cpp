@@ -81,6 +81,7 @@ void handleSelection(char selection, std::list<Song>& playlist,std::list<Song>::
 void playNextSong(std::list<Song> &playlist, std::list<Song>::iterator &currentSong);
 void playPreviousSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
 void playFirstSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
+void addSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
 
 
 int main() {
@@ -140,6 +141,7 @@ void handleSelection(char selection, std::list<Song>& playlist, std::list<Song>:
             playPreviousSong(playlist, currentSong);
             break;
         case 'A':
+            addSong(playlist, currentSong);
             break;
         case 'L':
             display_playlist(playlist, *currentSong);
@@ -189,4 +191,35 @@ void playFirstSong(std::list<Song>& playlist, std::list<Song>::iterator& current
     std::cout << "Playing first song\nPlaying:\n";
     currentSong = playlist.begin();
     std::cout << *currentSong << std::endl;
+}
+
+// Adding new songs
+void addSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong)
+{
+    std::cout << "Adding and playing new song\n";
+    // get song name
+    std::cout << "Enter song name: ";
+    std::string songName{};
+    std::cin.ignore();
+    std::getline(std::cin, songName);
+
+    // get artist name
+    std::cout << "Enter artist name: ";
+    std::string artistName{};
+    std::getline(std::cin, artistName);
+
+
+    // get rating
+    int rating{ 10 };
+    do
+    {
+        std::cout << "Enter your rating: ";
+        std::cin >> rating;
+    } while (rating < 0 || rating >5);
+    
+    // Adding element to playlist
+    playlist.emplace(currentSong,  songName , artistName , rating );
+    --currentSong;
+
+    std::cout << "Playing:\n" << *currentSong << std::endl;
 }
