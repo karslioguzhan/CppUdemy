@@ -79,6 +79,7 @@ void display_playlist(const std::list<Song>& playlist, const Song& current_song)
 char getSelection();
 void handleSelection(char selection, std::list<Song>& playlist,std::list<Song>::iterator &currentSong);
 void playNextSong(std::list<Song> &playlist, std::list<Song>::iterator &currentSong);
+void playPreviousSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong);
 
 
 int main() {
@@ -134,6 +135,7 @@ void handleSelection(char selection, std::list<Song>& playlist, std::list<Song>:
             playNextSong(playlist, currentSong);
             break;
         case 'P':
+            playPreviousSong(playlist, currentSong);
             break;
         case 'A':
             break;
@@ -160,5 +162,21 @@ void playNextSong(std::list<Song>& playlist, std::list<Song>::iterator& currentS
         ++currentSong;
     }
     
+    std::cout << *currentSong << std::endl;
+}
+
+// Playing previous song
+void playPreviousSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong)
+{
+    std::cout << "Playing previous song\nPlaying:\n";
+    if (currentSong->get_name() == playlist.front().get_name())
+    {
+        currentSong = std::prev(playlist.end());
+    }
+    else
+    {
+        --currentSong;
+    }
+
     std::cout << *currentSong << std::endl;
 }
