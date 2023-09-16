@@ -151,10 +151,9 @@ void handleSelection(char selection, std::list<Song>& playlist, std::list<Song>:
 void playNextSong(std::list<Song>& playlist, std::list<Song>::iterator& currentSong)
 {
     std::cout << "Playing next song\nPlaying:\n";
-    if (playlist.end() == currentSong)
+    if (currentSong->get_name() == playlist.back().get_name())
     {
         currentSong = playlist.begin();
-
     }
     else
     {
